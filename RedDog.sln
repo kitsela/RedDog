@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.API", "RedDog.API\RedDog.API.csproj", "{275DD2EA-E313-4C80-90AE-D54D523B7BE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.Core", "RedDog.Model\RedDog.Core.csproj", "{15B76233-3C96-4894-A506-5F9521375FFD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.EF", "RedDog.EF\RedDog.EF.csproj", "{D07A3E4C-5911-4ADE-B246-1B1B97173458}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{275DD2EA-E313-4C80-90AE-D54D523B7BE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{275DD2EA-E313-4C80-90AE-D54D523B7BE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{275DD2EA-E313-4C80-90AE-D54D523B7BE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{275DD2EA-E313-4C80-90AE-D54D523B7BE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B76233-3C96-4894-A506-5F9521375FFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B76233-3C96-4894-A506-5F9521375FFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B76233-3C96-4894-A506-5F9521375FFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B76233-3C96-4894-A506-5F9521375FFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FDC1537A-174E-4789-9546-4667F0D42BA7}
+	EndGlobalSection
+EndGlobal
