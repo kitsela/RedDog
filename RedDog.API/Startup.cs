@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using RedDog.EF;
-using MediatR;
 using RedDog.EF.Models;
 using Microsoft.AspNetCore.Identity;
 
@@ -32,12 +31,16 @@ namespace RedDog
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             //register identity
-            var builder = services.AddIdentityCore<AppUser>();
-            var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
+            var identityBuilder = services.AddIdentity<AppUser, IdentityRole>();
+            
+            //todo check difference
+            //var builder = services.AddIdentityCore<AppUser>();
+            //var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
 
-            //identity use this context to save data
+            ////identity use this context to save data
             identityBuilder.AddEntityFrameworkStores<ApplicationDbContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
+            // .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,7 +52,6 @@ namespace RedDog
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
 
             app.UseAuthentication();

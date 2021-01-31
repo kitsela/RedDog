@@ -1,11 +1,11 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using RedDog.EF.DataSeed;
+using RedDog.EF.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace RedDog
 {
@@ -13,7 +13,11 @@ namespace RedDog
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+
+            InitializeDB(host);
+
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +26,24 @@ namespace RedDog
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static void InitializeDB(IHost host)
+        {
+            using (var scope = host.Services.CreateScope())
+            {
+                var serviceProvider = scope.ServiceProvider;
+                try
+                {
+                    var userManager = serviceProvider.GetRequiredService<UserManager<AppUser>>();
+                    var roleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                    DBDataInitializer.SeedData(userManager, roleManager);
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine("************** DB Initializing error *********************", ex);
+                }
+            }
+        }
     }
 }
