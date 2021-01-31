@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.Core", "RedDog.Model
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.EF", "RedDog.EF\RedDog.EF.csproj", "{D07A3E4C-5911-4ADE-B246-1B1B97173458}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RedDog.Common.Models", "RedDog.Common.Models\RedDog.Common.Models.csproj", "{986C4CE2-C02B-434E-AEEC-6A8CF2478002}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D07A3E4C-5911-4ADE-B246-1B1B97173458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{986C4CE2-C02B-434E-AEEC-6A8CF2478002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{986C4CE2-C02B-434E-AEEC-6A8CF2478002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{986C4CE2-C02B-434E-AEEC-6A8CF2478002}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{986C4CE2-C02B-434E-AEEC-6A8CF2478002}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
