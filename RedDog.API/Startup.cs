@@ -8,6 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using RedDog.EF;
 using RedDog.EF.Models;
 using Microsoft.AspNetCore.Identity;
+using MediatR;
+using RedDog.API.Handlers.User.LoginHandler;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RedDog
 {
@@ -25,6 +30,8 @@ namespace RedDog
         {
             services.AddControllers();
 
+            services.AddMediatR(typeof(LoginHandler).Assembly);
+
             //configureEF
             services.AddDbContext<ApplicationDbContext>(
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
@@ -36,10 +43,22 @@ namespace RedDog
             //var builder = services.AddIdentityCore<AppUser>();
             //var identityBuilder = new IdentityBuilder(builder.UserType, builder.Services);
 
-            ////identity use this context to save data
+            //identity use this context to save data
             identityBuilder.AddEntityFrameworkStores<ApplicationDbContext>();
             identityBuilder.AddSignInManager<SignInManager<AppUser>>();
-            // .AddDefaultTokenProviders();
+            //.AddDefaultTokenProviders();
+
+
+            services.AddMvc(option =>
+            {
+                // switch from EnableEndpointRouting to IRouter. 
+                option.EnableEndpointRouting = false;
+                var policy = new AuthorizationPolicyBuilder()
+                                    .RequireAuthenticatedUser()
+                                    .RequireAuthenticatedUser()
+                                    .Build();
+                option.Filters.Add(new AuthorizeFilter(policy));
+            }).SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

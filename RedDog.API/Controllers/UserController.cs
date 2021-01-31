@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RedDog.API.Handlers.User.LoginHandler;
 using RedDog.Common.Models.User;
@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RedDog.API.Controllers
 {
+    [AllowAnonymous]
     public class UserController : BaseController
     {
         #region Auth
